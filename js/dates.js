@@ -1,6 +1,6 @@
 /*********pvm päivitys*********/
 var year = "2023";
-var dates = "22.5 - 25.8.9999";
+var dates = "22.5 - 25.8.2023";
 /******************************/
 
 const footerYear = document.getElementsByClassName("footer-year");
