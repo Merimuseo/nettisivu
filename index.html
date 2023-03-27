@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaasan Merimuseo</title>
+    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <script src="js/dates.js"></script>
+</head>
+<body onload="getDates();address()">
+    
+    <div class="page-wrap" id="fi">
+        <header>
+            <div class="header-logo" onclick="bytSida('s0', activePage.id)">
+                <h1>Vaasan Merimuseo</h1>
+            </div>
+        </header>
+        
+        <nav class="topnav" id="topnav-id">
+            <div class="nav-icon" onclick="displayNav()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <button class="nav-links active" id="s0" onclick="bytSida(this.id, 'fi')">ETUSIVU</button>
+            <button class="nav-links" id="s1" onclick="bytSida(this.id, 'fi')">VIERAILUINFO</button>
+            <button class="nav-links" id="s2" onclick="bytSida(this.id, 'fi')">HISTORIA</button>
+            <button class="nav-links" id="s3" onclick="bytSida(this.id, 'fi')">GALLERIA</button>
+            <button class="nav-links" id="s4" onclick="bytSida(this.id, 'fi')">YHTEYSTIEDOT</button>
+
+            <div class="nav-language" >
+                <button class="lang-links" onclick="bytSida(activeTab.id, 'fi')">FI</button>
+                <button class="lang-links" onclick="bytSida(activeTab.id, 'sv')">SV</button>
+            </div>
+        </nav>
+
+        <div class="content"><!--page0--> <!--Etusivu-->
+            <div class="card homepage-card">
+                <picture class="homepage-card-img">
+                    <source media="(max-width: 600px)" srcset="pic/mobile/brando_ryhmakuva_bw.jpg"> 
+                    <source media="(min-width: 600px)" srcset="pic/big/brando_ryhmakuva_bw.jpg" > 
+                    <img src="pic/big/brando_ryhmakuva_bw.jpg"  alt=""> 
+                </picture>
+                <p class="homepage-card-txt">Vaasa oli aikoinaan merkittävä laivanvarustus- ja merenkulkukaupunki. Vaasan merimuseossa esitellään paikallisia merenkulkuperinteitä 1800-luvun laivanrakennuksesta nykypäivän huviristeilijöihin. Erilaiset kiehtovat esineet, pienoismallit, hylkylöydöt ja valokuvat tarjoavat pilkahduksen entisaikojen merenkulkijoiden elämästä.</p>
+                <button onclick="bytSida('s1', 'fi')" class="homepage-card-link">Tervetuloa Museoon!</button>
+            </div>
+            <div class="card homepage-card">
+                <picture class="homepage-card-img  homepage-card-img-2">
+                    <source media="(max-width: 600px)" srcset="pic/mobile/luotsialuksia.jpg">
+                    <source media="(min-width: 600px)" srcset="pic/big/luotsialuksia.jpg">
+                    <img src="pic/big/luotsialuksia.jpg" alt="">
+                </picture>                
+                <p class="homepage-card-txt  homepage-card-txt-2">Vaasan Merimuseo sijaitsee Palosaaren salmen rannalla, paikalla, joka oli 150 vuoden ajan Vaasan kauppasatama ja laivanrakennuskeskus. Kauppiaitten aittarivit reunustivat 1800-luvulla ja 1900-luvun alussa rantaa ja laivaveistämöissä rakennettiin purjelaivoja 1930-luvulle asti. Sataman lisäksi alueella oli useita telakoita. Muun muassa  Carl Gustaf Wolffilla, sen ajan Pohjoismaiden suurimmalla yksityisellä laivanvarustajalla, oli veistämö Palosaarella. Wolff on myös rakennuttanut makasiinit, joissa Merimuseo tänä päivänä toimii.</p>
+                <button onclick="bytSida('s2', 'fi')" class="homepage-card-link  homepage-card-link-2">Lue lisää</button>
+            </div>
+        </div>
+
+        <div class="content page1"> <!--Vierailuinfo-->
+            <div class="card page1">
+                <h3>AUKIOLOAJAT</h3>
+                <p><span class="page1-dates">22.5 - 25.8.2023</span> <br>
+                Ma-pe klo 11.30-18.00.</p>
+            </div>
+            <div class="card page1">
+                <h3>PÄÄSYMAKSUT</h3>
+                <p>4 €/aikuinen<br>
+                2 €/lapset, opiskelijat, eläkeläiset<br>
+                Ryhmät aukioloaikojen ulkopuolella 6€/hlö, minimiveloitus 60 €
+                <br><br>
+                Maksutapa: Käteinen</p>
+            </div>
+            <div class="card page1 card-3">
+                <h3>OSOITE</h3>
+                <div>
+                    <h5>Käyntiosoite</h5>
+                    <p>Palosaaren salmi, 65200 Vaasa</p>
+                </div>
+                <div>
+                    <h5>Postiosoite</h5>
+                    <P class="addressFI">Satulatie 4, 65230 Vaasa</P>
+                </div>
+            </div>
+            <div class="google-maps">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3609.387085508553!2d21.5841803!3d63.1070649!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x467d60f757732657%3A0x5672e5f66e26d1fe!2sVaasan%20merimuseo!5e0!3m2!1sfi!2sfi!4v1658576785480!5m2!1sfi!2sfi" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>            
+            <div class="card page1 card-4">
+                <h3>ESTEETTÖMYYS</h3>
+                <p>Museorakennus ei valitettavasti ole esteetön liikuntarajoitteisille. <br>
+                Museo sijaitsee kahdessa kerroksessa. Kerrosten välillä ei ole hissiä.</p>
+            </div>
+        </div>
+
+        <div class="content"><!--page2--> <!--Historia-->
+            <div class="card page2">
+                <h3>VAASAN MERIMUSEO</h3>
+                <p>Vaasan merimuseo sijaitsee Palosaaren salmen rannalla, paikalla, jossa aikoinaan oli kaupungin ulkosatama. Museotoimintaa ylläpitää Vaasan Merihistorian Yhdistys. Yhdistys perustettiin vuonna 1981 ja ensimmäinen näyttely museon tiloissa oli avoinna yleisölle kesällä 1983. Tavoitteena on ulkoilmatyyppinen merimuseo, joka kertoo sekä alueen satamatoiminnasta että muusta Vaasan alueen merenkulun historiasta.</p>
+            </div>
+            <div class="card page2">
+                <h3>PALOSAAREN SATAMAN HISTORIAA</h3>
+                <p>Päätös sataman sijoittamisesta Palosaarelle tehtiin jo vuonna 1789. Kesäkuun 1. päivänä Drottningsholmenin linnassa Tukholmassa päivätyn kirjeen mukaan Palosaaresta tuli Vaasan kaupungin virallinen satama, sillä Vanhan Vaasan satamapaikat olivat myrskyille alttiita ja madaltuivat kaiken aikaa.</p>
+                <p>Vuonna 1804 kaupunki oli rakennuttanut Palosaarelle pakkahuoneen ja vaakahuoneen sekä niiden yläpuolelle kolme huonetta tullia varten. Kuitenkin vielä 1820-luvulla käytettiin ahkerasti myös Vanhan Vaasan satamaa ja 1830-luvun lopulla aloitettiin sataman ruoppaustyöt ja kanaalin rakentaminen kaupunkiin. Rakennustöistä vastasi kaupungin kauppiaiden perustama yhtiö. Kanaali rappeutui kuitenkin pian, kun kaupunki vuonna 1852 paloi.</p>
+                <p>Vuonna 1862 Vaasan kaupunki muutti nykyiselle paikalleen. Kaupungissa oli silloin 3425 asukasta. Palosaaren satamassa ja sen ympäristössä elettiin kuitenkin vilkkaita aikoja. Sataman lisäksi alueella oli useita telakoita. Mm. Carl Gustaf Wolffilla, joka oli siihen aikaan Pohjoismaiden suurin yksityinen laivanvarustaja oli veistämö Palosaarella ja lisäksi taklaustyöpaja Mansikkasaaressa. Vuoden 1886 joulukuussa Vaasan kaupunginvaltuusto päätti sataman sijoittamisesta Vaskiluotoon. Vaskiluodon sataman rakentaminen alkoi vuosisadan vaihteessa. Toiminta Palosaaren satamassa jatkui kuitenkin suhteellisen vilkkaana vielä 1920- ja 30-luvuille saakka. Viimeiset Palosaarella rakennetut purjealukset laskettiin vesille 1920-luvulla.</p>
+            </div>
+        </div>
+
+        <div class="content"> <!--page3--> <!--Galleria-->
+            <div class="card">
+                <h3>Galleria</h3>
+                <div class="gallery">
+                    <div class="gallery-card">
+                        <img class="gallery-card-img" src="pic/gallery/img1.jpg" onclick="displayModal();openThisImg(1)" alt=""> 
+                    </div>
+                    <div class="gallery-card">
+                        <img class="gallery-card-img" src="pic/gallery/img2.jpg" onclick="displayModal();openThisImg(2)" alt="">
+                    </div>
+                    <div class="gallery-card">
+                        <img class="gallery-card-img" src="pic/gallery/img3.jpg" onclick="displayModal();openThisImg(3)" alt="">
+                    </div>
+                    <div class="gallery-card">
+                        <img class="gallery-card-img" src="pic/gallery/img4.jpg" onclick="displayModal();openThisImg(4)" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="modal">
+                <img class="modal-img" src="pic/gallery/img1.jpg" alt="">
+                <img class="modal-img" src="pic/gallery/img2.jpg" alt="">
+                <img class="modal-img" src="pic/gallery/img3.jpg" alt="">
+                <img class="modal-img" src="pic/gallery/img4.jpg" alt="">          
+                <span class="modal-prev-btn" onclick="changeImg(-1)">&#10094;</span>
+                <span class="modal-next-btn" onclick="changeImg(1)">&#10095;</span>
+                <span class="modal-close-btn" onclick="displayModal()">&#10006;</span>
+            </div>
+        </div>
+
+        <div class="content"><!--page4--> <!--Yhteystiedot-->
+            <div class="card page4">
+                <h3>PUHELIN</h3>
+                <p>Museo 06 123 4567</p>
+            </div>
+            <div class="card page4">
+                <h3>POSTIOSOITE</h3>
+                <p class="addressFI">Satulatie 4</p>
+            </div>
+            <div class="card page4">
+                <h3>SÄHKÖPOSTI</h3>
+                <p>etunimi.sukunimi@mail.fi</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-adress">
+                <strong>Vaasan Merimuseo</strong> <br>
+                Palosaaren salmi <br>
+                65200 Vaasa
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/Vaasan-merimuseo-Vasa-sj%C3%B6fartsmuseum-101024305530847"><img src="pic/facebook.png" alt=""></a>
+            </div>
+            <div class="footer-bottom">
+                &copy; Vaasan Merimuseo <span class="footer-year">2023</span>
+            </div>
+        </footer>
+    </div> 
+
+
+    <div class="page-wrap" id="sv">
+        <header>
+            <div class="header-logo" onclick="bytSida('s0', activePage.id)">
+                <h1>Vasa Sjömuseum</h1>
+            </div>
+        </header>
+        
+        <nav class="topnav">
+            <div class="nav-icon" onclick="displayNav()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <button class="nav-links active" id="s0" onclick="bytSida(this.id, 'sv')">HEM</button>
+            <button class="nav-links" id="s1" onclick="bytSida(this.id, 'sv')">BESÖKSINFO</button>
+            <button class="nav-links" id="s2" onclick="bytSida(this.id, 'sv')">HISTORIA</button>
+            <button class="nav-links" id="s3" onclick="bytSida(this.id, 'sv')">GALLERI</button>
+            <button class="nav-links" id="s4" onclick="bytSida(this.id, 'sv')">KONTAKTUPPGIFTER</button>
+
+            <div class="nav-language" >
+                <button class="lang-links" onclick="bytSida(activeTab.id, 'fi')">FI</button>
+                <button class="lang-links" onclick="bytSida(activeTab.id, 'sv')">SV</button>
+            </div>
+        </nav>
+
+        <div class="content"><!--page0--> <!--Hem-->
+            <div class="card homepage-card">
+                <picture class="homepage-card-img">
+                    <source media="(max-width: 600px)" srcset="pic/mobile/brando_ryhmakuva_bw.jpg"> 
+                    <source media="(min-width: 600px)" srcset="pic/big/brando_ryhmakuva_bw.jpg" > 
+                    <img src="pic/big/brando_ryhmakuva_bw.jpg"  alt=""> 
+                </picture>
+                <p class="homepage-card-txt">Vasa Sjömuseum är beläget vid Brändösund, som 150 års tid var Vasas handelshamn och centrum för skeppsbyggnad.  Handelsmännens magasin stod i rader på båda sidor om sundet på 1800-talet och i början på 1900-talet och segelfartyg byggdes på skeppsvarven ända till 1930-talet. Utom hamnen fanns på området flera skeppsvarv. Bl.a. Carl Gustaf Wolff, den största privata skeppsredaren i Norden då för tiden, hade varv i Brändö. Wolff lät bygga magasinet som nu ger plats åt Sjöhistoriska museum.</p>
+                <button onclick="bytSida('s1', 'sv')" class="homepage-card-link">Välkommen till museet!</button>
+            </div>
+            <div class="card homepage-card">
+                <picture class="homepage-card-img  homepage-card-img-2">
+                    <source media="(max-width: 600px)" srcset="pic/mobile/luotsialuksia.jpg">
+                    <source media="(min-width: 600px)" srcset="pic/big/luotsialuksia.jpg">
+                    <img src="pic/big/luotsialuksia.jpg" alt="">
+                </picture>                
+                <p class="homepage-card-txt  homepage-card-txt-2">Vasa Sjömuseum är beläget vid Brändösund, som 150 års tid var Vasas handelshamn och centrum för skeppsbyggnad.  Handelsmännens magasin stod i rader på båda sidor om sundet på 1800-talet och i början på 1900-talet och segelfartyg byggdes på skeppsvarven ända till 1930-talet. Utom hamnen fanns på området flera skeppsvarv. Bl.a. Carl Gustaf Wolff, den största privata skeppsredaren i Norden då för tiden, hade varv i Brändö. Wolff lät bygga magasinet som nu ger plats åt Sjöhistoriska museum.</p>
+                <button onclick="bytSida('s2', 'sv')" class="homepage-card-link  homepage-card-link-2">Läs mer</button>
+            </div>
+        </div>
+
+        <div class="content page1"> <!--Besöksinfo-->
+            <div class="card page1">
+                <h3>ÖPPET</h3>
+                <p><span class="page1-dates">22.5 - 25.8.2023</span> <br>
+                Mån - Fre kl. 11.30-18.00.</p>
+            </div>
+            <div class="card page1">
+                <h3>PRIS</h3>
+                <p>4 €/vuxen<br>
+                2 €/barn, studerande, pensionärer<br>
+                Grupper övriga tider 6€/person, min. 10 personer eller 60€
+                <br><br>
+                Betalningssätt: Kontant</p>
+            </div>
+            <div class="card page1 card-3">
+                <h3>ADRESS</h3>
+                <div>
+                    <h5>Besöksadress</h5>
+                    <p>Brändö sund, 65200 Vasa</p>
+                </div>
+                <div>
+                    <h5>Postadress</h5> 
+                    <P class="addressSV">Sadelvägen 4, 65230 Vasa</P>
+                </div>
+            </div>
+            <div class="google-maps">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4170.249773299787!2d21.586102925963697!3d63.106130867293224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x467d60f757732657%3A0x5672e5f66e26d1fe!2sVasa%20sj%C3%B6fartsmuseum!5e0!3m2!1ssv!2sfi!4v1659449141275!5m2!1ssv!2sfi" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          
+            </div>
+            <div class="card page1 card-4">
+                <h3>TILLGÄNGLIGHET</h3>
+                <p>Museebyggnaden är tyvårr inte tillgänglig för rörelsehindrade.<br>
+                Byggnaden finns i två våningar. Mellan våningarna finns ingen hiss.</p>
+            </div>
+        </div>
+
+        <div class="content"><!--page2--> <!--Historia-->
+            <div class="card page2">
+                <h3>VASA SJÖMUSEUM</h3>
+                <p>Vasa sjömuseum är beläget vid Brändö sund, på samma plats där stadens uthamn tidigare låg. Museiverksamhet upprätthålles av Vasa Sjöhistoriska Förening. Föreningen grundades år 1981 och hade sin första utställning i Brändö sund sommaren 1983. Målsättningen på lång sikt är att utveckla området till ett friluftsmuseum, som berättar såväl om den gamla hamnverksamheten som om övrig sjöfartshistoria i regionen.</p>
+            </div>
+            <div class="card page2">
+                <h3>HAMNENS HISTORIA</h3>
+                <p>Den 1 juni 1789 gjordes på Drottningsholms slott i Stockholm ett beslut om att Brändö blev lossnings– och lastningsplats för Vasa stad. I ett kungligt beslut gjordes veterligt, att alla till staden ankommande och från staden då för tiden var belägen i Gamla Vasa, var man tvungen att söka en ny hamnplats rätt så långt borta från staden, eftersom Gamla Vasas hamnplatser var oskyddade och vattendjupet var otillräckligt.</p>
+                <p>År 1804 hade staden låtit bygga i Bråndö sund ett packhus och ett våghus samt ovanför dem tre rum för tullen. Den gamla hamnen anlitades dock flitigt ännu på 1820-talet och på 1830-talet grundade handelmännen ett bolag med syfte att muddra den gamla hamnen och dra en kanal genom Strömstensådran till staden. Kanalen förföll dock snabbt, då Vasa år 1852 brann.</p>
+                <p>År 1862 flyttades Vasa till sin nuvarande plats. Vasa hade då 3425 invånare. Det var dock livliga tider i Brändö hamn. Utom hamnen fanns på området flera skeppsvarv. Bl.a. Carl Gustaf Wolff, den största privata skeppsredaren i Norden då för tiden, hade ett varv i Brändö och därtill en tackelversktad på Smulterön. Enbart på sitt eget varv byggde Wolff alltsammans 42 fartyg. Wolff lät även bygga magasinet som nu ger plats åt utställningen. Vasa utvecklades och en ny uthamn för djuptgående fartyg blev aktuell. I december 1886 beslöt Vasa stadsfullmäktige att den nya uthamnen skall placeras i Vasklot. Byggnadsarbeten inleddes vid sekelskiftet. Hamnaktiviteterna i Brandö sund fortsatte dock till 1930-talet. De sista segelfartyg som var byggda i Brändö sjösattes på 1920-talet.
+                </p>
+            </div>
+        </div>
+
+        <div class="content"><!--page3--> <!--Galleri-->
+            <div class="card">
+                <h3>Galleri</h3>
+                <div class="gallery">
+                    <div class="gallery-card">
+                      <img class="gallery-card-img" src="pic/gallery/img1.jpg" alt="" onclick="displayModal();openThisImg(1)"> 
+                    </div>
+                    <div class="gallery-card">
+                      <img class="gallery-card-img" src="pic/gallery/img2.jpg" alt="" onclick="displayModal();openThisImg(2)">
+                    </div>
+                    <div class="gallery-card">
+                      <img class="gallery-card-img" src="pic/gallery/img3.jpg" alt="" onclick="displayModal();openThisImg(3)">
+                    </div>
+                    <div class="gallery-card">
+                      <img class="gallery-card-img" src="pic/gallery/img4.jpg" alt="" onclick="displayModal();openThisImg(4)">
+                    </div>
+                </div>
+            </div>
+            <div class="modal">
+                <img class="modal-img" src="pic/gallery/img1.jpg" alt="">
+                <img class="modal-img" src="pic/gallery/img2.jpg" alt="">
+                <img class="modal-img" src="pic/gallery/img3.jpg" alt="">
+                <img class="modal-img" src="pic/gallery/img4.jpg" alt="">    
+                <span class="modal-prev-btn" onclick="changeImg(-1)">&#10094;</span>
+                <span class="modal-next-btn" onclick="changeImg(1)">&#10095;</span>
+                <span class="modal-close-btn" onclick="displayModal()">&#10006;</span>
+            </div>
+        </div>
+
+        <div class="content"><!--page4--> <!--Kontaktuppgifter-->
+            <div class="card page4">
+                <h3>TELEFON</h3>
+                <p>06 123 4567</p>
+            </div>
+            <div class="card page4">
+                <h3>POSTADRESS</h3>
+                <P class="addressSV">Sadelvägen 4, 65230 </P>
+            </div>
+            <div class="card page4">
+                <h3>E-POST</h3>
+                <p>förnamn.efternamn@mail.fi</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-adress">
+                <strong>Vasa Sjömuseum</strong> <br>
+                Brändö sund <br>
+                65200 Vasa
+            </div>
+            <div class="footer-bottom">
+                &copy; Vasa Sjömuseum <span class="footer-year">2023</span>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/Vaasan-merimuseo-Vasa-sj%C3%B6fartsmuseum-101024305530847"><img src="pic/facebook.png" alt=""></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- <button onclick="scrollUp()" id="scroll-up-btn">&#8679;</button> -->
+    <button onclick="scrollUp()" id="scroll-up-btn"><span id="arrow"></span></button>
+
+    <script src="js/script.js"></script>    
+</body>
+</html>
